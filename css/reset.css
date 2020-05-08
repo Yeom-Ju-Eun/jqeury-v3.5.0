@@ -1,0 +1,9 @@
+body {
+    font: 16px/1.5 dotum, gulim, batang;
+    color: #222328;
+    background: #ffffff;
+}
+a,a:link {
+    color: #222328;
+    text-decoration: none;
+}
