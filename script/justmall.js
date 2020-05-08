@@ -3,15 +3,20 @@ $(function(){
     popup(); // pop 기능 실행
 });
 function tabs(){
-    $(".board_title li").click(function(){ // 클릭하면 다음을 실행해
-        // 클릭한것이 .on을 가지고 있는지 그럼 무엇을 시킬건지
-        if(!$(this).hasClass("on")){ // .on이 없으면
-            // 즉 갤러리를 선택한 것을 의미
-            $("#gallery").css("display","block");
-        } else {
-            $("#gallery").css("display","none");
+    $(".board_title li").click(function(){
+        //console.log("클릭한 LI : "+$(this).index());
+        if(!$(this).hasClass("on")) {
+            $(this).siblings().removeClass("on");
+            $(this).addClass("on");
+            $("#gallery").toggleClass("hide");
         }
     });
+}
+function notice_on(){
+    
+}
+function gallery_on(){
+   
 }
 function popup(){
     popup_open();
