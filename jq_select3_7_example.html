@@ -47,34 +47,47 @@
         $("#gnb > li").click(function(){            
             var LI = $(this); // 클릭한 li를 변수 LI에 대입해
             var ID = LI.children().text(); // 클릭한 LI의 자식요소 a의 컨텐츠 값을 알아와
-            console.log("ID : "+ID);
+            var pos,SPEED=400; // 클릭한 텍스트의 이름을 가진 요소의 문서로 부터 수직 위치값 (offset().top)
+            switch(ID) {
+                case "home" : pos = $("."+ID).offset().top;
+                break;
+                case "about" : pos = $("."+ID).offset().top;
+                break;
+                case "work" : pos = $("."+ID).offset().top;
+                break;
+                case "hireme" : pos = $("."+ID).offset().top;
+                break;
+                default:pos=0;
+                break;
+            }
+            $("html,body").stop().animate({
+                scrollTop:pos
+                },SPEED);
+        });  
+    });
+    /*
             if(ID == "home") {
                 var pos = $("."+ID).offset().top;
-                console.log("pos : "+pos+" / "+typeof pos);
                 $("html,body").stop().animate({
                     scrollTop:pos
                 },400);
             } else if(ID == "about") {
                 var pos = $("."+ID).offset().top;
-                console.log("pos : "+pos);
                 $("html,body").stop().animate({
                     scrollTop:pos
                 },400);
             } else if(ID == "work") {
                 var pos = $("."+ID).offset().top;
-                console.log("pos : "+pos);
                 $("html,body").stop().animate({
                     scrollTop:pos
                 },400);
             } else {
                 var pos = $("."+ID).offset().top;
-                console.log("pos : "+pos);
                 $("html,body").stop().animate({
                     scrollTop:pos
                 },400);
             }
-        });
-    });
+    */
     </script>
 </head>
 <body class="home">
