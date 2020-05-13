@@ -60,9 +60,15 @@
                 default:pos=0;
                 break;
             }
-            $("html,body").stop().animate({
-                scrollTop:pos
-                },SPEED);
+            if(pos > 80) {
+                $("html,body").stop().animate({
+                    scrollTop:pos - $("#header").outerHeight()
+                },SPEED,function(){
+                    $("#header").addClass("fixed");
+                });
+            }else {
+                $("header").removeClass("fixed");
+            }
         });  
     });
     /*
