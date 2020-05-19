@@ -1,7 +1,38 @@
 $(function(){
     tabs(); // tabs 기능 실행
     popup(); // pop 기능 실행
+    gnb(); // gnb 기능 호출
 });
+function gnb(){
+    // 메인메뉴 마우스 오버시 서브메뉴 펼치기
+    // 마우스 오버한 메인메뉴는 하이라이트 적용
+    $("#gnb > li").hover(
+        function(){
+            $(this).addClass("on"); // .on을 추가해
+            $(".lnb").show("slow"); // 400, 500, ... slow, fast
+        },
+        function(){
+            $(this).removeClass("on");
+            $(".lnb").hide("fast");
+        }
+    );
+    // $("#gnb >li").on({
+    //     mouseover:function(){
+
+    //     },
+    //     mouseout:function(){
+
+    //     }
+    // })
+    // $("#gnb > li").mouseover(function(){
+    //     $(this).addClass("on"); // .on을 적용해
+    //     $(".lnb").show();
+    // });
+    // $("#gnb > li").mouseout(function(){
+    //     $(this).removeClass("on"); // .on을 지워줘
+    //     $(".lnb").hide();
+    // })
+}
 function tabs(){
     $(".board_title li").click(function(){
         //console.log("클릭한 LI : "+$(this).index());

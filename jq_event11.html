@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 이벤트</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+    /*
+    $(document).ready(function(){
+        $("#gnb > li").on("click",function(e){
+            e.preventDefault(); // 이벤트 전파 하지마
+            e.stopPropagation();
+            // 클리간 요소의 인텍스 값을 출력해
+            var idx = $(this).index();
+            console.log(idx);
+        });
+    });
+    */
+   $(document).ready(function(){
+       $(".menuWrap_1 a").on("click",function(e){
+           e.preventDefault();
+           $(".menuWrap_1 a").css("background-color","#fff");
+           $(this).css("background-color","#ff0");
+       });
+       $(".menuWrap_2 a").on("click",function(e){
+           e.preventDefault();
+           $(".menuWrap_2 a").css("background-color","#fff");
+           var idx = $(".menuWrap_2 a").index(this);
+           
+           $(".menuWrap_2 a").eq(idx).css("background-color","#0ff");
+           $(".idxNum").text(idx);
+       });
+   });
+    </script>
+</head>
+<body>
+    <h1>$(this) 선택자</h1>
+    <h2>p.274</h2>
+    <p>$(this) 선택자를 사용하며느 이벤트가 발생한 요소를 선택하여 추적할 수 있다</p>
+    <!-- <h2>예시</h2>
+    <ul id="gnb">
+        <li><a href="#">메뉴 1</a></li>
+        <li><a href="#">메뉴 2</a></li>
+        <li><a href="#">메뉴 3</a></li>
+        <li><a href="#">메뉴 4</a></li>
+    </ul> -->
+    <h2>예시</h2>
+    <h2>$(this)</h2>
+    <ul class="menuWrap_1">
+        <li><a href="#">메뉴1</a></li>
+        <li><a href="#">메뉴2</a></li>
+        <li><a href="#">메뉴3</a></li>
+    </ul>
+    <h2>index()</h2>
+    <ul class="menuWrap_2">
+        <li><a href="#">메뉴4</a></li>
+        <li><a href="#">메뉴5</a></li>
+        <li><a href="#">메뉴6</a></li>
+    </ul>
+    <p class="idxNum">0</p>
+</body>
+</html>

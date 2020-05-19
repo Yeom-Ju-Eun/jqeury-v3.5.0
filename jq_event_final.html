@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 이벤트 총정리 실습</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+    $(document).ready(function(){
+            var baseFont=14;
+            $("#btn_group button").on("click",function(){
+                var choice = $(this).attr("id");
+                console.log(choice);
+                switch(choice){
+                    case "zoomIn":baseFont+=1;
+                    break;
+                    case "zoomOut":baseFont-=1;
+                    break;
+                    case "zoomReset":baseFont=14;
+                    break;
+                    default:console.log("글자크기 : "+baseFont);                    
+                }
+                if(baseFont <= 8 || baseFont >= 20) {
+                    alert("더이상 조절할 수 없어요!");
+                    baseFont=14;
+                    $("#contents p").css("font-size",baseFont);
+                } else {
+                    $("#contents p").css("font-size",baseFont);
+                }                                
+            });
+    });
+    </script>
+</head>
+<body>
+    <h1>총정리 실습</h1>
+    <h2>p.284~285</h2>
+    <p>글자 확대, 축소 버튼만들고 이벤트 핸들러 메서드를 이용해 기능을 구현</p>
+    <h2>요구사항</h2>
+    <ul>
+        <li>글자크기 : 8px(최소), 14px(기본), 20px(최대)</li>
+        <li>확대 또는 축소 버튼클릭시 +,- 1px씩 확대/축소 기능</li>
+        <li>100% 버튼 : 기본값 설정(14px)</li>
+        <li>설정된 글자 크기에 맞춰 문장의 글자 크기를 변경</li>
+    </ul>
+    <h2>예시</h2>
+    <div id="btn_group">
+        <button id="zoomOut">축소</button>
+        <button id="zoomReset">기본</button>
+        <button id="zoomIn">확대</button>
+    </div>
+    <div id="contents">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, dolorum culpa libero placeat odit sint minus illo mollitia omnis, dolorem amet, cum possimus vel fugit ipsum deserunt quisquam itaque quis!</p>
+        <p>하여도 꽃 피고 이것이야말로 길지 관현악이며, 심장의 우리의 힘있다. 원대하고, 꽃 소담스러운 그들의 청춘의 인생의 보라. 피가 투명하되 우리 되려니와, 트고, 위하여서. 청춘에서만 고동을 것은 이것이야말로 있는가? 이상을 있는 보내는 봄날의 예수는 이 별과 설산에서 눈이 사막이다. 보이는 청춘의 꽃 얼음 것이다. 같지 하여도 있음으로써 무엇을 우리 피어나기 사는가 부패뿐이다. 보내는 할지라도 때에, 품으며, 운다. 끓는 무한한 희망의 불어 끓는 굳세게 석가는 봄바람이다.</p>
+    </div>
+</body>
+</html>
