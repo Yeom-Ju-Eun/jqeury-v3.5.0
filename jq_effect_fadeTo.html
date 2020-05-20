@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>효과 및 애니메이션 메서드</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+    // .ready() <---> .load()
+    /*
+    $(document).ready(function(){
+        // 기본형
+    });
+    */
+    $(function(){
+        // 단축형
+        $(".btn2").hide(); // display : none 효과
+        $(".btn1").on("click",function(){
+            $(".box").slideUp(1000,"linear",function(){
+                $(".btn1").hide();
+                $(".btn2").show();
+            });
+        });
+        $(".btn2").on("click",function(){
+            $(".box").fadeIn(1000,"swing",function(){
+                $(".btn1").hide();
+                $(".btn2").show();
+            });
+        });
+        $(".btn3").on("click",function(){
+            $(".box").slideToggle(1000,"linear");
+        });
+        $(".btn4").on("click",function(){
+            $(".box").fadeTo("fast",0.3);
+        });
+        $(".btn5").on("click",function(){
+            $(".box").fadeTo("fast",1);
+        });
+    });
+    </script>
+</head>
+<body>
+    <h1>효과메서드</h1>
+    <h2>p.290~293</h2>
+    <h2>.fadeTo()</h2>
+    <p>fadeTo() 메서드는 대상에 지정한 투명도를 적용합니다.</p>
+    <h2>예시</h2>
+    <p>
+        <button class="btn1">slideUp()</button>
+        <button class="btn2">fadeIn()</button>
+    </p>
+    <p>
+        <button class="btn3">toggleSlide()</button>
+    </p>
+    <p>
+        <button class="btn4">fadeTo(0.3)</button>
+        <button class="btn5">fadeTo(1)</button>
+    </p>
+    <div class="box">
+        <div class="content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat sint, odit dignissimos aperiam sed corporis eius fuga sapiente voluptatum veritatis numquam sit architecto ratione quis molestiae velit tenetur incidunt et?
+        </div>
+    </div>
+    <p>하여도 꽃 피고 이것이야말로 길지 관현악이며, 심장의 우리의 힘있다. 원대하고, 꽃 소담스러운 그들의 청춘의 인생의 보라. 피가 투명하되 우리 되려니와, 트고, 위하여서. 청춘에서만 고동을 것은 이것이야말로 있는가? 이상을 있는 보내는 봄날의 예수는 이 별과 설산에서 눈이 사막이다. 보이는 청춘의 꽃 얼음 것이다. 같지 하여도 있음으로써 무엇을 우리 피어나기 사는가 부패뿐이다. 보내는 할지라도 때에, 품으며, 운다. 끓는 무한한 희망의 불어 끓는 굳세게 석가는 봄바람이다.</p>
+</body>
+</html>
